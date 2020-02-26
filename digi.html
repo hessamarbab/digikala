@@ -1,0 +1,1491 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Hessikala</title>
+<meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0">
+<meta charset="UTF-8">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="shortcut icon" href="https://www.digikala.com/static/files/5f198988.ico" type="image/icon">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--script src="myScript1.js"></script--> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+var mnu=new Array();
+var DotElements=new Array();
+var slidestate=new Array();
+var slides=new Array();
+var PageElement = document.getElementsByClassName("page");
+var k=0;
+var DragStartVertical=0;
+mnu = document.getElementsByClassName("mnubox");
+DotElements= document.getElementsByClassName("Dot");
+slides=document.getElementsByClassName("slideshow");
+function SlideDragStart(event)
+{
+	DragStartVertical=event.clientX;
+		
+}
+function SlideDragEnd(j,n,event)
+{
+	
+	if(DragStartVertical-event.clientX>0)
+	{
+	goRight(j,n);
+	}
+	else
+	{
+	goLeft(j,n);
+
+	}
+}
+function AutoSlide()
+{
+	var i=0
+	for(i=0;i<slides.length;i++)
+	goR(i,8);
+}
+function goRight(j,n)
+{
+	
+	DotElements[j*n+slidestate[j]].style.backgroundColor="#eee";
+	slidestate[j]++;
+	slidestate[j] %=n;
+	DotElements[j*n+slidestate[j]].style.backgroundColor="#cce";
+	slides[j].style.backgroundImage="url('"+slidestate[j]+".jpg')";
+}
+function goR(j,n)
+{
+	
+	DotElements[j*n+slidestate[j]].style.backgroundColor="#eee";
+	slidestate[j]++;
+	slidestate[j] %=n;
+	DotElements[j*n+slidestate[j]].style.backgroundColor="#cce";
+	slides[j].style.backgroundImage="url('"+slidestate[j]+".jpg')";
+}
+function dotclk(j,n,d)
+{
+	DotElements[j*n+slidestate[j]].style.backgroundColor="#eee";
+	slidestate[j]=d;
+	DotElements[j*n+slidestate[j]].style.backgroundColor="#cce";
+	slides[j].style.backgroundImage="url('"+slidestate[j]+".jpg')";
+}
+function goLeft(j,n)
+{
+	
+	DotElements[j*n+slidestate[j]].style.backgroundColor="#eee";
+	if(slidestate[j]==0)
+	slidestate[j]=n;
+	slidestate[j]--;
+	slidestate[j] %=n;
+	DotElements[j*n+slidestate[j]].style.backgroundColor="#cce";
+	slides[j].style.backgroundImage="url('"+slidestate[j]+".jpg')";
+}
+function openmnu(i)
+	{
+	closemnu();
+	mnu[i].style.padding="2%";
+	mnu[i].style.height="auto";
+	mnu[i].style.visibility="visible";
+//	PageElement[0].style.backgroundColor="#777";
+	PageElement[0].style.filter="brightness(50%)";
+	}
+function closemnu()
+	{
+	var j=0;
+	for(;j<mnu.length;j++)
+		{
+		mnu[j].style.padding="0px";
+		mnu[j].style.height="0px";
+		mnu[j].style.visibility="hidden";
+		}
+	PageElement[0].style.filter="brightness(100%)";
+//	PageElement[0].style.backgroundColor="#eee";
+	}
+	
+</script>
+<style>
+		{
+		font-family: b-nazanin,Verdana,sans-serif;
+		box-sizing:border-box;
+		}
+body	{
+	
+		box-sizing:border-box;
+
+			
+		}
+.body	
+		{
+		margin-top:1.4vw;
+		}
+
+.head
+		{
+		
+		height:300px;
+		display:inline;
+		background-color:white;
+		position:relative;
+		}
+span		
+		{
+		cursor:pointer;
+		}
+.row
+		{
+		margin-top:1vw;
+		margin:1vw;
+		box-sizing:border-box;
+		}
+.top-logo
+		{	
+			margin-right:2vw;
+			background:url('https://www.digikala.com/static/files/ddcba6ed.svg');
+			background-size: cover;
+			background-position:center;
+			width:9%;
+			height:2.4vw;
+			float:right;
+		}
+.search-bar
+		{
+		font-size:1.7vw;
+		background-color:#d33;
+		margin-right:3vw;
+		width:43%;
+		padding-left:1%;
+		border-radius: 10px;
+		display:inline;
+		height:auto;
+		float:right;
+		}
+.top-link
+		{
+		font-size:1.2vw;
+		margin:1vw;
+		float:left;
+		
+		}
+.top-link:hover
+		{
+		border-bottom:solid black 1px;
+		}
+.dasher
+		{
+		margin-top:0;
+		font-size:2vw;
+		}
+.sabad
+		{
+		margin-top:0.5%;
+		border:solid blue 1px;
+		color:blue;
+		padding:.25%
+		}
+div.menu	
+		{
+		margin:0;
+		padding-right:2vw;
+		padding-left:2vw;
+		font-size:1vw;
+		font-family:0-sina-Bold;
+		background-color:#555;
+		color:#fff;
+		width:100%;
+		height:auto;
+		display:inline-block;
+		}
+span.menu
+		{
+		padding-top:.6vw;
+		padding-bottom:.6vw;
+		padding-left:1.3vw;
+		padding-right:1.3vw;
+		float:right;
+		}
+span.menu:hover
+		{
+		padding-top:.5vw;
+		padding-bottom:.5vw;
+		padding-left:1.2vw;
+		padding-right:1.2vw;
+		border:solid #aaa .1vw;
+		border-bottom:solid red .6vw;
+		}
+.mnubox	
+		{
+		top:7.9vw;
+		right:1%;
+		width:85%;
+		position:absolute;
+		color:#889;
+		font-size:1vw;
+		text-align:right;
+		background-color:#fff;
+		//first hiddenning 
+		hight:0;
+		padding:0%;
+		visibility:hidden;
+		box-sizing:border-box;
+		direction:rtl;
+		}
+
+.menu-col
+		{
+		border-top:solid blue 1px;
+		border-bottom:solid blue 1px;
+		padding-bottom:2vw;
+		padding-top:2vw;
+		}		
+.open	
+		{
+		
+		}
+.page
+		{
+		top:7.83vw;
+		text-align:right;
+		position:absolute;
+		background-color:#eee;
+		width:100%;
+	//	height:600px;
+		}
+.flesh
+		{
+		cursor:pointer;
+		Position:absolute;
+		font-size:3vw;
+		color:white;
+		bottom:35%;
+		transition-property:margin ,padding;
+		transition-duration:.5s;
+		}
+.flesh:active,.flesh:hover,.flesh:focus,.flesh-l:active,.flesh-l:hover,.flesh-l:focus,.flesh-r:active,.flesh-r:hover,.flesh-r:focus
+		{
+		color:white;
+	
+		}
+.flesh-r	
+		{
+		right:1.2vw;
+		padding-right:.2vw;
+		}
+.flesh-l	
+		{
+		left:1.2vw;
+		padding-left:.2vw;
+		}
+.flesh-l:active,.flesh-l:hover,.flesh-l:focus
+		{
+		
+		padding-left:0vw;
+		padding-right:.2vw;
+		}
+.flesh-r:active,.flesh-r:hover,.flesh-r:focus
+		{
+		padding-right:0vw;
+		padding-left:.2vw;
+		}
+.slideshow
+		{
+		height:300px;
+		background-image:url('digikala.jpg');
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size: cover;
+		position:relative;
+		}
+.slidepoint
+		{
+		
+		top:40%;
+		margin:auto;
+		
+		position:relative;
+		}
+.Dot
+		{
+		cursor:pointer;
+		
+		margin:0 .5vw 0;
+		padding:0vw 10px;
+
+		background-color:#eee;
+		border-radius: 50%;
+		Position:relative;
+		}
+</style>
+</head>
+<body>
+
+
+
+<div class="head" onmouseover="closemnu()">
+<span class="top-logo">
+<a href="#"></a>
+</span>
+<div class="search-bar">
+<span onclick="alert('searchin')"class="glyphicon glyphicon-search" style="color:#bbb;margin:1%;">
+</span>
+<input  placeholder="...کالای مورد نظرتان	" type="text" style="border:solid black 1px;text-align:right;background-color:#ddf;border-radius:0 10px 10px 0;width:92.35%;">
+</input>
+</div>
+<span class="top-link 	sabad">
+<span class="glyphicon glyphicon-shopping-cart"></span>
+سبد خرید
+</span>
+<a class="top-link dasher">|<a>
+<span id="g1"class="top-link glyphicon glyphicon-chevron-down" >
+</span>
+<a class="top-link">ثبت نام/</a>
+<a class="top-link" style="margin-left:0px">ورود</a>
+<a class="top-link">سوالی دارید؟</a>
+<a class="top-link">فروشنده شوید</a>
+</div>
+
+<div class="body">
+<div class="open" >
+<div class="menu">
+<span   onmouseover="closemnu()" style="height:100%;float:right;font-size:1.5vw;color:#555">|</span>
+<span onmouseover="openmnu(0)" class="menu">
+کالای دیجیتال
+</span>
+<span onmouseover="openmnu(1)" class="menu">
+آرایشی و بهداشتی
+</span>
+<span onmouseover="openmnu(2)" class="menu">
+خودرو،ابزار واداری
+</span>
+<span onmouseover="openmnu(3)" class="menu">
+مد و پوشاک
+</span>
+<span onmouseover="openmnu(4)" class="menu">
+خانه و آشپزخانه
+</span>
+<span onmouseover="openmnu(5)" class="menu">
+کتاب، لوازم التحریر و هنر
+</span>
+<span onmouseover="openmnu(6)" class="menu">
+اسباب بازی کودک و نوزاد
+</span>
+<span onmouseover="openmnu(7)" class="menu">
+ورزش و سفر
+</span>
+<span onmouseover="openmnu(8)" class="menu">
+خوردنی و آشامیدنی
+</span>
+<span class="menu" onmouseover="closemnu()"style="float:left;background-color:#444;">
+فروش ویژه
+</span>
+</div>
+</div>
+
+
+<!----------------------------------------------page start---------------------------------------------------------------------->
+<div class="page" onmouseover="closemnu()">
+
+<div class="col-sm-8">
+<div class="row col slideshow" ondragend="SlideDragEnd(0,8,event)" ondragstart="SlideDragStart(event)"onmouseup="SlideDragEnd(0,8,event)" onmousedown="SlideDragStart(event)">
+<p class="flesh flesh-r" onclick="goRight(0,8);" >></p>
+<p class="flesh flesh-l" onclick="goLeft(0,8);"><</p>
+	
+<span class="slidepoint">
+<span class="Dot"onclick="dotclk(0,8,0)"></span>
+<span class="Dot"onclick="dotclk(0,8,1)"></span>
+<span class="Dot"onclick="dotclk(0,8,2)"></span>
+<span class="Dot"onclick="dotclk(0,8,3)"></span>
+<span class="Dot"onclick="dotclk(0,8,4)"></span>
+<span class="Dot"onclick="dotclk(0,8,5)"></span>
+<span class="Dot"onclick="dotclk(0,8,6)"></span>
+<span class="Dot"onclick="dotclk(0,8,7)"></span>
+
+</span>
+</div>
+
+<div class="row col slideshow" ondragend="SlideDragEnd(1,8,event)" ondragstart="SlideDragStart(event)"onmouseup="SlideDragEnd(1,8,event)" onmousedown="SlideDragStart(event)">
+<p class="flesh flesh-r" onclick="goRight(1,8);">></p>
+<p class="flesh flesh-l" onclick="goLeft(1,8);"><</p>
+<span class="slidepoint">
+<span class="Dot"onclick="dotclk(1,8,0)"></span>
+<span class="Dot"onclick="dotclk(1,8,1)"></span>
+<span class="Dot"onclick="dotclk(1,8,2)"></span>
+<span class="Dot"onclick="dotclk(1,8,3)"></span>
+<span class="Dot"onclick="dotclk(1,8,4)"></span>
+<span class="Dot"onclick="dotclk(1,8,5)"></span>
+<span class="Dot"onclick="dotclk(1,8,6)"></span>
+<span class="Dot"onclick="dotclk(1,8,7)"></span>
+</span>
+</div>
+</div>
+
+<div class="col-sm-3 slideshow"style="float:right;margin:1vw;">
+
+</div>
+</div>
+
+
+
+<!---------------------------------------------------------menu-------------------------------------------->
+<div id="mnubox" class="mnubox"style="float:right;text-align:right;">
+<div class="col-sm-3 menu-col" style="float:right">
+<li>
+لوازم جانبی گوشی 
+</li><li>&nbsp
+کیف و کاور گوشی
+</li><li>&nbsp
+پاور بانک (شارژر همراه)
+</li><li>&nbsp
+هندزفری، هدفون، هدست
+</li><li>&nbsp
+پایه نگهدارنده گوشی
+</li><li>&nbsp
+گوشی موبایل 
+</li><li>&nbsp
+آیفون اپل
+</li><li>&nbsp
+هوآوی
+</li><li>&nbsp
+واقعیت مجازی 
+</li><li>&nbsp
+مچ‌بند و ساعت هوشمند
+</li><li>&nbsp
+هدفون، هدست، هندزفری
+</li><li>&nbsp
+اسپیکر بلوتوث و با سیم
+</li><li>&nbsp
+اسکوتر برقی
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+هارد، فلش و SSD 
+</li><li>&nbsp
+دوربین<
+</li><li>&nbsp
+دوربین عکاسی دیجیتال
+</li><li>&nbsp
+دوربین‌ ورزشی و فیلم برداری
+</li><li>&nbsp
+دوربین‌ چاپ سریع
+</li><li>&nbsp
+لوازم جانبی دوربین 
+</li><li>&nbsp
+لنز
+</li><li>&nbsp
+کیف
+</li><li>&nbsp
+کارت حافظه
+</li><li>&nbsp
+کاغذ چاپ عکس
+</li><li>&nbsp
+دوربین‌های تحت شبکه 
+</li><li>&nbsp
+دوربین دو چشمی و شکاری 
+</li><li>&nbsp
+تلسکوپ 
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+
+XBox, PS4  بازی 
+</li><li>&nbsp
+لوازم جانبی لپتاپ 
+</li><li>&nbsp
+کیف، کوله و کاور
+</li><li>&nbsp
+کابل‌های رابط و مبدل
+</li><li>&nbsp
+کابل‌ صدا، AUX و HDMI
+</li><li>&nbsp
+مودم و تجهیزات شبکه 
+</li><li>&nbsp
+کامپیوتر و تجهیزات جانبی 
+</li><li>&nbsp
+تجهیزات مخصوص بازی
+</li><li>&nbsp
+مانیتور
+</li><li>&nbsp
+کیس‌های اسمبل شده
+
+</li><li>&nbsp
+قطعات داخلی کامپیوتر
+
+</li><li>&nbsp
+ماوس
+</li><li>&nbsp
+کیبورد
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+
+لپ تاپ <
+</li><li>&nbsp
+تبلت <
+</li><li>&nbsp
+شارژر تبلت و موبایل 
+</li><li>&nbsp
+باتری<
+</li><li>&nbsp
+کیف، کاور، لوازم جانبی تبلت 
+</li><li>&nbsp
+ماشین های اداری 
+</li><li>&nbsp
+لوازم جانبی پرینتر
+</li><li>&nbsp
+تلفن، بی سیم و سانترال
+</li><li>&nbsp
+فکس
+</li><li>&nbsp
+پرینتر
+</li><li>&nbsp
+لیبل زن و لوازم جانبی
+</li><li>&nbsp
+کتابخوان فیدیبوک 
+</li><li>&nbsp
+<
+کارت هدیه خرید از دیجی‌کالا
+</li>
+</div>
+</div>
+
+<div id="mnubox" class="mnubox">
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+لوازم آرایشی
+</li><li>
+آرایش چشم و ابرو
+</li><li>
+آرایش لب
+</li><li>
+آرایش صورت
+</li><li>
+مواد آرایش مو
+</li><li>
+سنگ پا، بهداشت و زیبایی ناخن
+</li><li>
+تجهیزات جانبی آرایشی
+</li><li>
+لوازم بهداشتی
+</li><li>
+کرم و مراقبت پوست
+</li><li>
+شامپو و مراقبت مو
+</li><li>
+بهداشت دهان و دندان
+</li><li>
+بهداشت و مراقبت بدن
+</li><li>
+ضد تعریق
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+لوازم شخصی برقی
+</li><li>
+ماشین اصلاح صورت
+</li><li>
+ماشین اصلاح سر
+</li><li>
+سشوار
+</li><li>
+اصلاح بدن آقایان
+</li><li>
+اصلاح بدن بانوان
+</li><li>
+اصلاح موی گوش، بینی و ابرو
+</li><li>
+برس پاک سازی
+</li><li>
+اتو مو و حالت دهنده
+</li><li>
+بیگودی و فر کننده
+</li><li>
+مسواک برقی
+</li><li>
+لیزر
+</li><li>
+ست هدیه
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+عطر، ادکلن، اسپری و ست
+</li><li>
+مردانه
+</li><li>
+زنانه
+</li><li>
+جیبی
+</li><li>
+اسپری
+</li><li>
+طلا، نقره و زیورآلات زنانه
+</li><li>
+زیورآلات نقره زنانه
+</li><li>
+زیورآلات طلا زنانه
+</li><li>
+حلقه و انگشتر طلای زنانه
+</li><li>
+دستبند طلا زنانه
+</li><li>
+گردنبند طلا زنانه
+</li><li>
+گوشواره طلا زنانه
+</li><li>
+زیورآلات طلا مردانه
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+ابزار سلامت و طبی
+</li><li>
+مچ بند و ساعت هوشمند
+</li><li>
+ترازو
+</li><li>
+کالای خواب و استراحت طبی
+</li><li>
+تست قند خون
+</li><li>
+تب سنج
+</li><li>
+فشارسنج
+</li><li>
+ابزار مراقبت پا
+</li><li>
+نمایشگر ضربان قلب
+</li><li>
+ماساژور
+</li><li>
+تشک و پتوی برقی
+</li><li>
+ویلچر
+</li>
+</div>
+</div>
+<div id="mnubox" class="mnubox">
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+خودروهای ایرانی و خارجی
+</li><li>
+لوازم جانبی خودرو
+</li><li>
+لوازم تزیینی
+</li><li>
+سیستم صوتی و تصویری
+</li><li>
+دزدگیر، قفل فرمان و پدال
+</li><li>
+لوازم مصرفی خودرو
+</li><li>
+یدکی، لاستیک، لامپ و چراغ
+</li><li>
+مکمل سوخت و روغن
+</li><li>
+انواع فیلتر
+</li><li>
+روغن موتور و ضد یخ
+</li><li>
+موتور سیکلت
+</li><li>
+کلاه و لوازم جانبی موتور
+</li><li>
+لوازم مصرفی و یدکی موتور
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+ابزار برقی
+</li><li>
+دریل، پیچ گوشتی، چکشی
+</li><li>
+اره برقی
+</li><li>
+کارواش
+</li><li>
+مکنده و دمنده
+</li><li>
+فرز و سنگ رومیزی
+</li><li>
+دستگاه چسب برقی و دستی
+</li><li>
+لوازم جانبی ابزار برقی
+</li><li>
+مته
+</li><li>
+صفحه فرز و پولیش
+</li><li>
+سیستم دزدگیر و درب بازکن
+</li><li>
+چندراهی برق و محافظ ولتاژ
+</li><li>
+کمپرسور و جک خودرو
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+ابزار غیر برقی
+</li><li>
+نردبان
+</li><li>
+لوازم و ابزار مصرفی و جانبی
+</li><li>
+آچار، انبر، ابزار دستی
+</li><li>
+پیچ گوشتی و فازمتر
+</li><li>
+روغن دان و لوازم روانکاری
+</li><li>
+چسب صنعتی
+</li><li>
+گل، خاک، کود، لوازم باغبانی
+</li><li>
+شیر و یراق آلات ساختمانی
+</li><li>
+ابزار و تجهیزات ایمنی کار
+</li><li>
+متر، تراز، اندازه‌گیری دقیق
+</li><li>
+نظم دهنده ابزار
+</li><li>
+گاوصندوق و قفل
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+ماشین های اداری
+</li><li>
+لوازم جانبی پرینتر
+</li><li>
+تلفن، بی سیم و سانترال
+</li><li>
+فکس
+</li><li>
+پرینتر
+</li><li>
+لیبل زن و لوازم جانبی
+</li><li>
+ماشین حساب
+</li><li>
+صندوق فروشگاهی
+</li><li>
+ترازو فروشگاهی
+</li><li>
+ویدیو پروژکتور
+</li><li>
+لوازم التحریر اداری
+</li><li>
+کیف و کوله اداری
+</li><li>
+میز، صندلی، دکوراسیون اداری
+</li>
+</div>
+</div>
+<div id="mnubox" class="mnubox">
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+مردانه
+</li><li>
+لباس مردانه
+</li><li>
+تی شرت و پولو شرت
+</li><li>
+پیراهن
+</li><li>
+شلوار
+</li><li>
+لباس زیر
+</li><li>
+کفش مردانه
+</li><li>
+کفش ورزشی
+</li><li>
+کفش رسمی
+</li><li>
+اکسسوری مردانه
+</li><li>
+ساعت
+</li><li>
+کیف
+</li><li>
+کمربند
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+زنانه
+</li><li>
+لباس زنانه
+</li><li>
+پوشش اسلامی و مانتو
+</li><li>
+بلوز و شومیز
+</li><li>
+تی شرت و پولوشرت
+</li><li>
+شلوار و سرهمی
+</li><li>
+لباس زیر
+</li><li>
+کفش زنانه
+</li><li>
+کفش ورزشی
+</li><li>
+کفش تخت
+</li><li>
+اکسسوری زنانه
+</li><li>
+ساعت
+</li><li>
+کیف
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+شال و روسری
+</li><li>
+زیورآلات زنانه
+</li><li>
+دستبند
+</li><li>
+گوشواره
+</li><li>
+گردنبند
+</li><li>
+زیورآلات طلا زنانه
+</li><li>
+دستبند
+</li><li>
+گوشواره
+</li><li>
+آویز
+</li><li>
+گردنبند
+</li><li>
+زیورآلات نقره زنانه
+</li><li>
+عینک آفتابی زنانه
+</li><li>
+عینک آفتابی مردانه
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+پوشاک ورزشی مردانه
+</li><li>
+پوشاک ورزشی زنانه
+</li><li>
+کفش ورزشی مردانه
+</li><li>
+کفش ورزشی زنانه
+</li><li>
+پوشاک ورزشی پسرانه
+</li><li>
+پوشاک ورزشی دخترانه
+</li><li>
+کفش ورزشی پسرانه
+</li><li>
+کفش ورزشی دخترانه
+</li><li>
+کوله پشتی مردانه
+</li><li>
+بچه گانه
+</li><li>
+نوزاد
+</li><li>
+پسرانه
+</li><li>
+دخترانه
+</li>
+</div>
+</div>
+<div id="mnubox" class="mnubox">
+
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+صوتی و تصویری
+</li><li>
+تلویزیون
+</li><li>
+میز تلویزیون
+</li><li>
+چندراهی برق و محافظ ولتاژ
+</li><li>
+سینمای خانگی و ساندبار
+</li><li>
+گیرنده دیجیتال تلویزیون
+</li><li>
+دکوراتیو
+</li><li>
+ساعت دیواری و رومیزی
+</li><li>
+تابلو
+</li><li>
+مبلمان خانگی
+</li><li>
+پرده
+</li><li>
+شمع، عود، گل و گلدان
+</li><li>
+فرش ماشینی، دستبافت، تابلو
+</li>
+</div>
+
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+
+لوازم برقی خانگی
+</li><li>
+یخچال و فریزر
+</li><li>
+ماشین لباسشویی
+</li><li>
+ماشین ظرفشویی
+</li><li>
+جاروبرقی
+</li><li>
+جارو شارژی
+</li><li>
+تلفن، بی سیم و سانترال
+</li><li>
+کولر، پنکه، تصفیه هوا
+</li><li>
+قهوه و چای ساز، آب میوه گیر
+</li><li>
+ترازوی آشپزخانه
+</li><li>
+اتو بخار و پرسی
+</li><li>
+حیوانات خانگی، غذا و لوازم
+</li><li>
+آکواریوم، غذا و لوازم آبزیان
+</li>
+</div>
+
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+
+سرو و پذیرایی
+</li><li>
+سرویس غذاخوری
+</li><li>
+قاشق، چنگال و کارد
+</li><li>
+ماگ، لیوان، پارچ و سرویس
+</li><li>
+نور و روشنایی
+</li><li>
+لوستر و چراغ تزیینی
+</li><li>
+ریسه، لامپ و چراغ
+</li><li>
+آشپزخانه
+</li><li>
+سرویس و ظروف پخت و پز
+</li><li>
+بشقاب و سایر ظروف
+</li><li>
+فلاسک و کلمن
+</li><li>
+کتری، قوری، لوازم سرو چای
+</li><li>
+لوازم دستشویی و روشویی
+</li>
+</div>
+
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+
+مواد شوینده
+</li><li>
+شوینده ظروف
+</li><li>
+شوینده لباس
+</li><li>
+تمیزکننده سطوح
+</li><li>
+ملحفه، سرویس، لوازم خواب
+</li><li>
+حوله و وسایل حمام
+</li><li>
+پادری، کمد، لوازم اتاق خواب
+</li><li>
+گُل، خاک، کود، لوازم باغبانی
+</li><li>
+دستمال کاغذی
+</li>
+</div>
+</div>
+<div id="mnubox" class="mnubox">
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+کتاب و مجله
+</li><li>
+کتاب چاپی
+</li><li>
+مجلات خارجی و داخلی
+</li><li>
+کتاب صوتی
+</li><li>
+محتوای آموزشی
+</li><li>
+آموزش موسیقی
+</li><li>
+آموزش ورزش و سرگرمی
+</li><li>
+آموزش عکاسی و فیلم برداری
+</li><li>
+آموزش زبان
+</li><li>
+آموزش نرم افزار و کامپیوتر
+</li><li>
+نرم افزار
+</li><li>
+بازی کنسول و کامپیوتر
+</li><li>
+فیلم سینمایی، سریال و مستند
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+لوازم التحریر
+</li><li>
+لوازم اداری و اقلام مصرفی
+</li><li>
+کیف، کوله پشتی و جامدادی
+</li><li>
+چراغ مطالعه
+</li><li>
+کاغذ کادو، پاکت و کارت هدیه
+</li><li>
+نوشت افزار
+</li><li>
+دفتر و کاغذ
+</li><li>
+خودکار و روان نویس
+</li><li>
+بسته ابزار طراحی و مهندسی
+</li><li>
+ابزار نقاشی و رنگ آمیزی
+</li><li>
+میز تحریر
+</li><li>
+آلبوم عکس
+</li><li>
+دفتر، کاغذ و مقوا
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+آلات موسیقی
+</li><li>
+لوازم جانبی ادوات موسیقی
+</li><li>
+گیتار
+</li><li>
+کیبورد و ارگ
+</li><li>
+پیانو دیجیتال
+</li><li>
+درام، پرکاشن و دف
+</li><li>
+تجهیزات استودیویی
+</li><li>
+ویولن
+</li><li>
+سازهای ایرانی
+</li><li>
+موسیقی
+</li><li>
+موسیقی با کلام
+</li><li>
+موسیقی بی کلام
+</li><li>
+فیلم کنسرت
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+صنایع دستی
+</li><li>
+کالاهای مسی
+</li><li>
+سفال، سرامیک و چینی
+</li><li>
+کیف چرمی
+</li><li>
+ترمه،‌ قلمکار و دستبافت
+</li><li>
+خاتم، منبت، حصیری و چوبی
+</li><li>
+تابلو و ساعت
+</li><li>
+میناکاری
+</li><li>
+فیروزه کوبی
+</li><li>
+سوزن دوزی
+</li><li>
+محصولات استخوانی
+</li><li>
+جعبه و دست سازه های هنری
+</li><li>
+فرش ماشینی، دستبافت، تابلو
+</li>
+</div>
+</div>
+<div id="mnubox" class="mnubox">
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+بهداشت و حمام کودک و نوزاد
+</li><li>
+پوشک
+</li><li>
+دستمال مرطوب
+</li><li>
+حوله
+</li><li>
+وان حمام نوزاد
+</li><li>
+مینی واش
+</li><li>
+شامپو کودک و نوزاد
+</li><li>
+پوشاک و کفش کودک و نوزاد
+</li><li>
+لباس کودک و لباس نوزادی
+</li><li>
+کفش
+</li><li>
+کفش ورزشی
+</li><li>
+جوراب و پاپوش کودک و نوزاد
+</li><li>
+کلاه و پیشبند نوزاد
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+تبلت
+</li><li>
+XBox, PS4 و بازی
+</li><li>
+اسباب بازی
+</li><li>
+فکری و آموزشی
+</li><li>
+پازل، لگو و ساختنی
+</li><li>
+عروسک و فیگور
+</li><li>
+اسپینر، ابزار شوخی و سرگرمی
+</li><li>
+تفنگ، تیر و لوازم بازی جنگی
+</li><li>
+بازی و سرگرمی کودک
+</li><li>
+ماشین بازی، موتور، سه چرخه
+</li><li>
+دوچرخه
+</li><li>
+تشک بازی و پارک بازی
+</li><li>
+تاب و سرسره
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+سلامت، ایمنی و مراقبت
+</li><li>
+تصفیه هوا
+</li><li>
+ترازو
+</li><li>
+دوربین و پیجر اتاق کودک
+</li><li>
+تب سنج و دماسنج
+</li><li>
+محافظ و ابزار ایمنی
+</li><li>
+صندلی خودرو کودک و نوزاد
+</li><li>
+خواب کودک
+</li><li>
+چراغ خواب کودک
+</li><li>
+تشک کودک
+</li><li>
+سرویس خواب
+</li><li>
+پتو
+</li><li>
+بالش شیردهی
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+ملزومات گردش و سفر
+</li><li>
+کالسکه و کریر
+</li><li>
+صندلی کودک و نوزاد
+</li><li>
+ساک لوازم نوزاد
+</li><li>
+لوازم جانبی گردش و سفر
+</li><li>
+آغوشی
+</li><li>
+لوازم شخصی
+</li><li>
+پستانک و ملزومات
+</li><li>
+شیردوش
+</li><li>
+شورت آموزشی
+</li><li>
+غذاخوری
+</li><li>
+صندلی غذاخوری
+</li><li>
+شیشه شیر، سرلاک، داروخوری
+</li>
+</div>
+</div>
+<div id="mnubox" class="mnubox">
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+پوشاک ورزشی مردانه
+</li><li>
+پوشاک ورزشی زنانه
+</li><li>
+کفش ورزشی مردانه
+</li><li>
+کفش ورزشی زنانه
+</li><li>
+پوشاک ورزشی پسرانه
+</li><li>
+پوشاک ورزشی دخترانه
+</li><li>
+کفش ورزشی پسرانه
+</li><li>
+کفش ورزشی دخترانه
+</li><li>
+لوازم ورزشی
+</li><li>
+ورزش‌های هوازی و بدن‌سازی
+</li><li>
+ورزش‌های توپی
+</li><li>
+ورزش‌های آبی
+</li><li>
+چتر
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+تجهیزات سفر
+</li><li>
+چمدان و ساک
+</li><li>
+کیف و کوله پشتی
+</li><li>
+دوچرخه
+</li><li>
+لوازم جانبی دوچرخه
+</li><li>
+چراغ
+</li><li>
+تلمبه
+</li><li>
+قمقمه
+</li><li>
+زنگ و بوق
+</li><li>
+قفل
+</li><li>
+لوازم ایمنی
+</li><li>
+اسکوتر برقی
+</li><li>
+اسکیت و اسکوتر
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+کوهنوردی و کمپینگ
+</li><li>
+کفش کوهنوردی
+</li><li>
+عصای کوهنوردی
+</li><li>
+چراغ قوه و چراغ پیشانی
+</li><li>
+چاقو و ابزار چند کاره
+</li><li>
+قمقمه و فلاسک
+</li><li>
+چادر
+</li><li>
+کیسه خواب
+</li><li>
+زیرانداز سفری
+</li><li>
+لوازم جانبی کوهنوردی و سفر
+</li><li>
+شیکر
+</li><li>
+ساک ورزشی
+</li><li>
+چشم بند
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+تجهیزات سفر
+</li><li>
+چمدان و ساک
+</li><li>
+کیف و کوله
+</li><li>
+کیف کمری
+</li>
+</div>
+</div>
+<div id="mnubox" class="mnubox">
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+کالای اساسی و خوار و بار
+</li><li>
+نان
+</li><li>
+برنج
+</li><li>
+روغن
+</li><li>
+قند
+</li><li>
+شکر
+</li><li>
+سس
+</li><li>
+رب و کنسرو گوجه
+</li><li>
+خیارشور و ترشیجات
+</li><li>
+آبلیمو، آبغوره و سرکه
+</li><li>
+ماکارونی، پاستا و رشته
+</li><li>
+زعفران، زرشک و تزیینات غذا
+</li><li>
+حبوبات و سویا
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+لبنیات
+</li><li>
+شیر
+</li><li>
+ماست
+</li><li>
+پنیر
+</li><li>
+خامه
+</li><li>
+مواد پروتئینی
+</li><li>
+سوسیس و کالباس
+</li><li>
+گوشت گوسفندی
+</li><li>
+گوشت مرغ
+</li><li>
+تخم مرغ
+</li><li>
+گوشت گاو و گوساله
+</li><li>
+ماهی، میگو و خاویار
+</li><li>
+تن ماهی
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+صبحانه
+</li><li>
+مربا
+</li><li>
+عسل
+</li><li>
+حلواشکری، ارده و کنجد
+</li><li>
+نوشیدنی ها
+</li><li>
+چای
+</li><li>
+دمنوش
+</li><li>
+قهوه
+</li><li>
+آب و آب معدنی
+</li><li>
+ماءالشعیر
+</li><li>
+نوشابه
+</li><li>
+شربت و آبمیوه
+</li><li>
+میوه و سبزی
+</li>
+</div>
+<div class="col-sm-3 menu-col"style="float:right">
+<li>
+غذای آماده و نودل
+</li><li>
+فرآورده‌های منجمد
+</li><li>
+کنسرو و کمپوت
+</li><li>
+تنقلات
+</li><li>
+شکلات، تافی و آبنبات
+</li><li>
+بیسکویت و ویفر
+</li><li>
+مغز طعم‌دار خشکبار
+</li><li>
+کیک و کلوچه
+</li><li>
+چیپس و پاپ کورن
+</li><li>
+پفک و اسنک
+</li><li>
+آدامس و خوشبوکننده
+</li><li>
+پاستیل
+</li><li>
+خشکبار و شیرینی
+</div>
+</div>
+</div>
+<script>
+for(k=0;k < slides.length;k++)
+slidestate[k]=0;
+setInterval(AutoSlide, 5000);
+</script>
+</body>
+</html>
